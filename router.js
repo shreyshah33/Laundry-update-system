@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
     let dryer9 = body.dryer9;
     let dryer10 = body.dryer10;
     let dryer11 = body.dryer11;
-    console.log(`${body} Name: ${name}\n email: ${email} \n phone number: ${number} \n`);
+    console.log(`Name: ${req}\n email: ${email} \n phone number: ${number} \n`);
 });
 
 module.exports = router;
