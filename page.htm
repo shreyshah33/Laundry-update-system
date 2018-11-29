@@ -1,45 +1,28 @@
-<style>
-
-    form {
-        width: 80%;
-        margin: 0 auto;
-    }
-    label, input {
-        display: inline-block;
-    }
-    label {
-        width: 30%;
-        text-align: left;
-    }
-    label + input {
-        width: 50%;
-    }
-    input + input {
-        float: right;
-    }
-​
-</style>
 <form action="/" method="post">
-    <label>Name:</label><input type="text" name="name"><br><br>
-    <label>Email:</label><input type="email" name="email"><br><br>
+    <h2><b> Your Details </b> </h2> <br>
+    <div> <label>Name:</label><input type="text" name="name" required><br><br>
+    <label>Email:</label><input type="email" name="email" required><br><br>
     <label>Phone Number:</label><input type="number" name="number"><br><br>
+    </div><br>
+    <h2><b> Machine Details </b> </h2> <br>
+    <div>
+    <label>Washer 1: Being used</label><input type="radio" name="washer1" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="washer1" id="empty" value="empty"></label><br>
+    <label>Washer 2: Being used</label><input type="radio" name="washer2" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="washer2" id="empty" value="empty"></label><br>
+    <label>Washer 3: Being used</label><input type="radio" name="washer3" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="washer3" id="empty" value="empty"></label><br>
+    <label>Washer 4: Being used</label><input type="radio" name="washer4" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="washer4" id="empty" value="empty"></label><br>
+    <label>Washer 5: Being used</label><input type="radio" name="washer5" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="washer5" id="empty" value="empty"></label><br>
+    <label>Dryer 6: Being used</label><input type="radio" name="dryer6" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="dryer6" id="empty" value="empty"></label><br>
+    <label>Dryer 7: Being used</label><input type="radio" name="dryer7" id="used"value="used" required><label>Empty/Done</label> <input type="radio" name="dryer7" id="empty" value="empty"></label><br>
+    <label>Dryer 8: Being used</label><input type="radio" name="dryer8" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="dryer8" id="empty" value="empty"></label><br>
+    <label>Dryer 9: Being used</label><input type="radio" name="dryer9" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="dryer9" id="empty" value="empty"></label><br>
+    <label>Dryer 10: Being used</label><input type="radio" name="dryer10" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="dryer10" id="empty" value="empty"></label><br>
+    <label>Dryer 11: Being used</label><input type="radio" name="dryer11" id="used" value="used" required><label>Empty/Done</label> <input type="radio" name="dryer11" id="empty" value="empty"></label><br>
+    </div>
     <br>
-    <h2><b> Click the box if it is being used. If the machine is empty, don't click </b> </h2> <br>
-    <label>Washer 1:</label><input type="checkbox" name="washer1"><br>
-    <label>Washer 2:</label><input type="checkbox" name="washer2"><br>
-    <label>Washer 3:</label><input type="checkbox" name="washer3"><br>
-    <label>Washer 4:</label><input type="checkbox" name="washer4"><br>
-    <label>Washer 5:</label><input type="checkbox" name="washer5"><br>
-    <label>Dryer 6:</label><input type="checkbox" name="dryer6"><br>
-    <label>Dryer 7:</label><input type="checkbox" name="dryer7"><br>
-    <label>Dryer 8:</label><input type="checkbox" name="dryer8"><br>
-    <label>Dryer 9:</label><input type="checkbox" name="dryer9"><br>
-    <label>Dryer 10:</label><input type="checkbox" name="dryer10"><br>
-    <label>Dryer 11:</label><input type="checkbox" name="dryer11"><br>
-    <br>
-    <h2><b> Now about you </b> </h2>
+    <!-- <h2><b> Now about you </b> </h2> -->
     <label>What machine are you currently using</label>
-    <select name="user">
+    <select required name="user">
+        <option value="">Please select one</option>
         <option value="none">None</option>
         <option value="1">Washer 1</option>
         <option value="2">Washer 2</option>
@@ -52,6 +35,6 @@
         <option value="9">Dryer 9</option>
         <option value="10">Dryer 10</option>
         <option value="11">Dryer 11</option>
-    </select>
-    <input type="submit" value="Submit" style="width: 80%">
+    </select><br>
+    <br><input type="submit" value="Submit" style="width: 80%">
 </form>
