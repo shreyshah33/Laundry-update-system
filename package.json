@@ -1,4 +1,11 @@
 {
+  "name": "laundry_management_system",
+  "version": "1.0.0",
+  "description": "Laundry management system for my dorm",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "devDependencies": {
     "nodemon": "^1.18.7"
   },

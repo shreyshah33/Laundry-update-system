@@ -25,14 +25,14 @@ class Machine{
     getStatus(){
         return this.status;
     }
-    done(){
+    sendEmail(){
+        console.log("email sent!");
         mailer.sendEmail(this.email, this.name);
+        this.name = "";
+        this.email="";
+        this.number="";
+
     }
 }
-/**
- * Set Status.
- * 
- * @param {string} newStatus- Status
-*/
+
 module.exports = Machine;
-//module.exports.Machine.setStatus(newStatus);

@@ -12,16 +12,15 @@ const transporter = nodemailer.createTransport({
 
 /**
  * Send email to recipients with a message.
- * @param {[String]} recipients List of emails
- * @param {String} subject Subject field of message
- * @param {String} message Message to send
+ * @param {String} recipient email
+ * @param {String} name name of recipient
  */
 module.exports.sendEmail = async (recipient, name) => {
     //Setting emailing options
     const mailOptions = {
         from: `${process.env.EMAIL_USERNAME}`, 
         to: `${recipient}`, 
-        subject: `Laundry Done!`, 
+        subject: `Your Laundry is Done!`, 
         text: `Howdy ${name},\n Your Laundry is done! Please pick it up. \n Haas Laundry Management System`
     };
     
