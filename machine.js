@@ -26,7 +26,6 @@ class Machine{
         return this.status;
     }
     sendEmail(){
-        console.log("email sent!");
         mailer.sendEmail(this.email, this.name);
         this.name = "";
         this.email="";
