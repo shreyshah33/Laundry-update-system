@@ -219,7 +219,7 @@
     </form>
     <script>
         function no_disp(number) {
-            var Used = document.getElementById("Used").checked;
+            var Used = document.querySelectorAll("#Used")[number-1].checked;
             if (Used == true){
                 document.getElementById("user").options[number+1].disabled = false;
             }
