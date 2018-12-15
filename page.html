@@ -118,6 +118,20 @@
             border-radius: 4px;
             background-color: #f1f1f1;
         }
+
+        input[type="radio"]{
+            width: 20px; 
+            height: 20px;
+        }
+
+        input[type="submit"]{
+            width: 150px;
+            height: 35px;
+            padding: 6px 6px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f1f1f1;
+        }
     </style>
     <form action="/" method="post" class="haas" enctype="application/json">
         <h2 class="heading"> Your Details </h2>
@@ -219,7 +233,7 @@
     </form>
     <script>
         function no_disp(number) {
-            var Used = document.querySelectorAll("#Used")[number-1].checked;
+            var Used = document.getElementById("Used").checked;
             if (Used == true){
                 document.getElementById("user").options[number+1].disabled = false;
             }
