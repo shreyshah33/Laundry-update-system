@@ -2,6 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const Machine = require("./machine.js");
+const status = require('./status.js');
 
 // Create an express router 
 var router = express.Router();
