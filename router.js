@@ -1,7 +1,6 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const Machine = require("./machine.js");
 const status = require('./status.js');
 const admin = require('firebase-admin');
 const serviceAccount = require('./key');
