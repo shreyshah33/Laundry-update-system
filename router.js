@@ -9,7 +9,6 @@ const serviceAccount = require('./key');
 var router = express.Router();
 
 
-
 router.get('/', (req, res) => {
     res.sendFile(__dirname + '/page.html');
 });
@@ -25,12 +24,17 @@ router.post('/', (req, res) => {
 });
 
 router.get('/status', (req, res) => {
-    let data = "";
-    for(let i = 1; i<=11; i++){
-        data = data + "Washer/Dryer" + i + ": " + machines[i].getStatus() + "<br>"
+    let oldStatus = [];
+    async function print(){
+        oldStatus = await status.getStatus();
+        var printStmt = "";
+        for(var i=1; i<12; i++){
+            printStmt+=`<h3>Machine-${i} - ${oldStatus[i]}</h3>`
+        }
+        res.send(
+            `${printStmt}`
+        );
     }
-    res.send(
-        `<h3>${data}</h3>`
-    );
+    print()    
 });
 module.exports = router;
