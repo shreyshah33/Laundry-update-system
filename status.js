@@ -1,7 +1,6 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const Machine = require("./machine.js");
 const rp = require("request-promise");
 const cheerio = require("cheerio");
 const cheerioTableParser = require('cheerio-tableparser');
@@ -20,7 +19,6 @@ var db = admin.firestore();
 let ref ={};
 let oldStatus ={};
 let status ={};
-var batch = db.batch();  
 const url= "https://www.laundryalert.com/cgi-bin/aggies/LMRoom?XallingPage=LMPage&Halls=8&PreviousHalls=&RoomPersistence=&MachinePersistenceA=&MachinePersistenceB=";
 
 
@@ -33,6 +31,18 @@ async function getReference(){
         console.error(error);
     }
     return ref;
+}
+
+async function updateData(refNumber, name, email, number){
+    var batch = db.batch();  
+    var ref= await getReference();
+    let doc = await ref[refNumber].get()
+    if(!doc.exists) {
+    console.log('No such document!')
+    } else {
+        batch.update(ref[refNumber], {Name: name, Email: email, Number: number});
+    }
+    return batch.commit().then(function () {console.log("Updated stuff from HTML")});
 }
 
 async function getOldStatus(){
@@ -83,6 +93,8 @@ async function checkUpdate(){
     var oldStatus = await getOldStatus();
     var status = await getStatus();
     var ref = await getReference();
+    var batch = db.batch();  
+    // console.log(status);
     for(var i = 1; i<num; i++){
         var name = "";
         var email = "";
@@ -97,18 +109,16 @@ async function checkUpdate(){
                 email=doc.data()['Email'];
                 if(email!=""){
                     mailer.sendEmail(email,name);
+                    console.log(i+" sending email to "+name+" at "+email);    
                 }
-                console.log("sending email to "+name+"at "+email);    
-                
                 batch.update(ref[i], {Name: "", Email: "", Number: ""});
             }
         }
        batch.update(ref[i], {Status: status[i]});
-    //    console.log(status[i]+" "+oldStatus[i]);
     }
-     
-    return batch.commit().then(function () {console.log("updated stuff")});
+
+    return batch.commit().then(function () {console.log("Ran Cron Job");});
 }
 
-checkUpdate();
+return module.exports = {getStatus, updateData, checkUpdate};
 // getStatus();
