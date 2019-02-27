@@ -1,4 +1,4 @@
 cron:
 - description: "update database"
-  url: /cron.js
+  url: /cron
   schedule: every 1 mins
