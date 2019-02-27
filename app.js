@@ -6,7 +6,7 @@ const status = require("./status.js");
 
 const app = express();
 
-cron.schedule("* * * * *", function(){status.checkUpdate()});
+// cron.schedule("* * * * *", function(){status.checkUpdate()});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

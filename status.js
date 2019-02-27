@@ -100,7 +100,7 @@ async function checkUpdate(){
         var email = "";
         // console.log(oldStatus[i]+" "+status[i])
 
-        if(oldStatus[i]!=status[i]){
+        if(oldStatus[i]!=status[i] && status[i]=="Available"){
             let doc = await ref[i].get()
             if(!doc.exists) {
             console.log('No such document!')

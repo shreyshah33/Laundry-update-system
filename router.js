@@ -37,4 +37,8 @@ router.get('/status', (req, res) => {
     }
     print()    
 });
+
+router.get('/cron', (req, res) => {
+    status.checkUpdate();
+});
 module.exports = router;
